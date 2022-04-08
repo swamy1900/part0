@@ -1,0 +1,26 @@
+note over browser:
+enter data in textfield and 
+click on save button to create 
+a new note
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: HTTP Status Code: 302, URL redirect, \n server asks browser to make HTTP request to https://fullstack-exampleapp.herokuapp.com/notes
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content":"part0 exercise","date":"2021-05-227"}, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
